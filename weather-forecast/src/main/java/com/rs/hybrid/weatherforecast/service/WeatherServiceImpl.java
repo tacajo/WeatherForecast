@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class WeatherServiceImpl implements WeatherService{
+
     @Autowired
     private WeatherRepository weatherRepository;
 

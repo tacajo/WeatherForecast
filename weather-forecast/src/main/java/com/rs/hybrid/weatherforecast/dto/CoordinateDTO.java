@@ -1,12 +1,13 @@
 package com.rs.hybrid.weatherforecast.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CoordinateDTO {
 
     private float lat;
