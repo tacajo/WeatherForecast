@@ -17,5 +17,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addConverter(new CloudsDTOToCloudsConverter());
         registry.addConverter(new WeatherDTOToWeatherConverter());
         registry.addConverter(new WeatherForecastListDTOToWeatherForecastListConverter());
+        registry.addConverter(new CityToCityDTOConverter());
     }
 }

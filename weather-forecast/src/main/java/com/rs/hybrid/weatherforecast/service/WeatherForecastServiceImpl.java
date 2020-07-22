@@ -4,6 +4,8 @@ import com.rs.hybrid.weatherforecast.dto.APIResponse;
 import com.rs.hybrid.weatherforecast.dto.WeatherDTO;
 import com.rs.hybrid.weatherforecast.dto.WeatherForecastListDTO;
 import com.rs.hybrid.weatherforecast.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.convert.ConversionService;
@@ -16,6 +18,9 @@ import java.util.List;
 
 @Service
 public class WeatherForecastServiceImpl implements WeatherForecastService {
+
+    Logger logger = LoggerFactory.getLogger(WeatherForecastServiceImpl.class);
+
 
     @Autowired
     private RestTemplate restTemplate;
@@ -44,7 +49,7 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
     @Autowired
     private WeatherService weatherService;
 
-    @Value("${api-key-name}")
+    @Value("${api-key}")
     private String apiKey;
 
     @Value("${api-call-forecast}")
@@ -66,7 +71,8 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
     }
 
     private void getCityData(String cityId) {
-        System.out.println(cityId);
+        logger.info(String.format("Getting data for city id %s...", cityId));
+
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(apiCall)
                 .queryParam("id", cityId)
                 .queryParam("appid", apiKey)

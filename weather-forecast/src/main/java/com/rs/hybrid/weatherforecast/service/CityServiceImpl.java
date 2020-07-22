@@ -5,6 +5,8 @@ import com.rs.hybrid.weatherforecast.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CityServiceImpl implements CityService{
 
@@ -13,5 +15,9 @@ public class CityServiceImpl implements CityService{
 
     public City save(City city) {
         return cityRepository.save(city);
+    }
+
+    public List<City> getAll() {
+        return cityRepository.findAll();
     }
 }
