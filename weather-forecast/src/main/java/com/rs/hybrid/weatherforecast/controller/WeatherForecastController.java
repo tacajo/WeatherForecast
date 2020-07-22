@@ -14,6 +14,6 @@ public class WeatherForecastController {
 
     @PostConstruct
     public void init() {
-        //weatherForecastService.getData();
+        weatherForecastService.getData();
     }
 }
