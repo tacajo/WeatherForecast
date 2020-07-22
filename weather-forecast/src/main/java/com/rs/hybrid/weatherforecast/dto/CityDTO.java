@@ -21,4 +21,6 @@ public class CityDTO {
     private long sunrise;
 
     private long sunset;
+
+    private double avg_temp;
 }

@@ -84,7 +84,7 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
 
         City city = conversionService.convert(response.getBody().getCity(), City.class);
         city.setCoord(coordinateService.save(conversionService.convert(response.getBody().getCity().getCoord(), Coordinate.class)));
-        cityService.save(city);
+
 
         List<WeatherForecastListDTO> list = response.getBody().getList();
 
@@ -96,13 +96,23 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
             weatherForecastList.setMain(mainPart);
             weatherForecastList.setWind(wind);
             weatherForecastList.setClouds(clouds);
-            for (WeatherDTO weatherDTO: weatherForecastListDTO.getWeather()) {
+            for (WeatherDTO weatherDTO : weatherForecastListDTO.getWeather()) {
                 Weather weather = weatherService.save(conversionService.convert(weatherDTO, Weather.class));
                 weatherForecastList.getWeather().add(weather);
             }
-            weatherForecastListService.save(weatherForecastList);
+            weatherForecastList = weatherForecastListService.save(weatherForecastList);
+            city.getWeatherForecastList().add(weatherForecastList);
+            city.getMainParts().add(mainPart);
+            addAverageTemp(city);
+            cityService.save(city);
         }
+    }
 
+    private void addAverageTemp(City city) {
+        city.setAvg_temp(city.getMainParts().stream()
+                .mapToDouble(MainPart::getTemp)
+                .average()
+                .getAsDouble());
     }
 
 }
