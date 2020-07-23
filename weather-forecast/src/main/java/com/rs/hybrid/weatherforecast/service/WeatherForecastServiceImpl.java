@@ -84,7 +84,7 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
         HttpEntity<APIResponse> response = restTemplate.getForEntity(
                 builder.toUriString(),
                 APIResponse.class);
-        System.out.println(builder.toUriString());
+
         City city = conversionService.convert(response.getBody().getCity(), City.class);
         city.setCoord(coordinateService.save(conversionService.convert(response.getBody().getCity().getCoord(), Coordinate.class)));
 
