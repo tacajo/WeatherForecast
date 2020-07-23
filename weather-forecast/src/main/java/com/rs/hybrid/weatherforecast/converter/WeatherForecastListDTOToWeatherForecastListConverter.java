@@ -11,7 +11,7 @@ public class WeatherForecastListDTOToWeatherForecastListConverter implements Con
     @Override
     public WeatherForecastList convert(WeatherForecastListDTO weatherForecastListDTO) {
         return new WeatherForecastList().builder()
-                .dt(new Date(weatherForecastListDTO.getDt()))
+                .dt(new Date(weatherForecastListDTO.getDt() * 1000))
                 .visibility(weatherForecastListDTO.getVisibility())
                 .pop(weatherForecastListDTO.getPop())
                 .dt_txt(weatherForecastListDTO.getDt_txt())
