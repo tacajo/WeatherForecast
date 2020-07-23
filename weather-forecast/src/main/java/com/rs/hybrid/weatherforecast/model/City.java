@@ -46,7 +46,4 @@ public class City {
 
     @OneToMany
     private List<WeatherForecastList> weatherForecastList = new ArrayList<>();
-
-    @OneToMany
-    private List<MainPart> mainParts = new ArrayList<>();
 }

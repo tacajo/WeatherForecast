@@ -1,7 +1,7 @@
 package com.rs.hybrid.weatherforecast.service;
 
 import com.rs.hybrid.weatherforecast.model.WeatherForecastList;
-import com.rs.hybrid.weatherforecast.repository.*;
+import com.rs.hybrid.weatherforecast.repository.WeatherForecastListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

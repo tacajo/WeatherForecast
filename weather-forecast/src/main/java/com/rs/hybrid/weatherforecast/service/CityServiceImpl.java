@@ -5,15 +5,18 @@ import com.rs.hybrid.weatherforecast.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class CityServiceImpl implements CityService {
 
     @Autowired
     private CityRepository cityRepository;
+
+    public Optional<City> findById(Long id) {
+        return cityRepository.findById(id);
+    }
 
     public City save(City city) {
         return cityRepository.save(city);
@@ -22,12 +25,5 @@ public class CityServiceImpl implements CityService {
     public List<City> getAll() {
         return cityRepository.findAll();
     }
-
-    public List<City> averageTemp() {
-        return cityRepository.findAll().stream()
-                .sorted(Comparator.comparing(City::getAvg_temp).reversed())
-                .collect(Collectors.toList());
-    }
-
 
 }

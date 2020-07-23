@@ -42,4 +42,8 @@ public class WeatherForecastList {
 
     @Column
     private Date dt_txt;
+
+    public double getTemp() {
+        return getMain().getTemp();
+    }
 }
