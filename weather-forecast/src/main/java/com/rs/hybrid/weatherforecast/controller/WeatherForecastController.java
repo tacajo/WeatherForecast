@@ -34,7 +34,7 @@ public class WeatherForecastController {
 
     @PostConstruct
     public void init() {
-        //weatherForecastService.getData();
+        weatherForecastService.getData();
     }
 
     @GetMapping(value = "/sort-by-avg-temp")

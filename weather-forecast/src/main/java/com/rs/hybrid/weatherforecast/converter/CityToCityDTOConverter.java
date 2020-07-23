@@ -17,8 +17,8 @@ public class CityToCityDTOConverter implements Converter<City, CityDTO> {
                         .build())
                 .country(city.getCountry())
                 .timezone(city.getTimezone())
-                .sunrise(city.getSunrise().getTime())
-                .sunset(city.getSunrise().getTime())
+                .sunrise(city.getSunrise().getTime() / 1000)
+                .sunset(city.getSunrise().getTime() / 1000)
                 .avg_temp(city.getAvg_temp())
                 .build();
     }

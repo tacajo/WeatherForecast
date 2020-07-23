@@ -154,7 +154,9 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
                     .average()
                     .getAsDouble());
         }
-        return cities;
+        return cities.stream()
+                .sorted(Comparator.comparing(City::getAvg_temp).reversed())
+                .collect(Collectors.toList());
     }
 
     public City cityAverageTemp(Date startDate, Date endDate, Long id) {
