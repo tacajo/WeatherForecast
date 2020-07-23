@@ -31,12 +31,5 @@ public class CityController {
         return ResponseEntity.ok(cityDTOS);
     }
 
-    @GetMapping(value = "/average-temperature")
-    public ResponseEntity averageTemp() {
-        List<CityDTO> cityDTOS = new ArrayList<>();
-        cityService.averageTemp().forEach(city -> {
-            cityDTOS.add(conversionService.convert(city, CityDTO.class));
-        });
-        return ResponseEntity.ok(cityDTOS);
-    }
+
 }

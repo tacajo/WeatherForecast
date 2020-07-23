@@ -1,6 +1,5 @@
 package com.rs.hybrid.weatherforecast.dto;
 
-import com.rs.hybrid.weatherforecast.model.City;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

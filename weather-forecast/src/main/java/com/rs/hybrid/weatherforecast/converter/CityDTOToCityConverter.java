@@ -18,7 +18,6 @@ public class CityDTOToCityConverter implements Converter<CityDTO, City> {
                 .sunrise(new Date(cityDTO.getSunrise()))
                 .sunset(new Date(cityDTO.getSunset()))
                 .weatherForecastList(new ArrayList<>())
-                .mainParts(new ArrayList<>())
                 .build();
     }
 }
