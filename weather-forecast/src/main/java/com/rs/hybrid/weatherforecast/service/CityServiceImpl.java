@@ -14,6 +14,9 @@ public class CityServiceImpl implements CityService {
     @Autowired
     private CityRepository cityRepository;
 
+    @Autowired
+    private WeatherForecastService weatherForecastService;
+
     public Optional<City> findById(Long id) {
         return cityRepository.findById(id);
     }
@@ -24,6 +27,10 @@ public class CityServiceImpl implements CityService {
 
     public List<City> getAll() {
         return cityRepository.findAll();
+    }
+
+    public List<City> getSortedCities() {
+        return weatherForecastService.sortByAverageTemperature();
     }
 
 }

@@ -12,4 +12,6 @@ public interface CityService {
     City save(City city);
 
     List<City> getAll();
+
+    List<City> getSortedCities();
 }

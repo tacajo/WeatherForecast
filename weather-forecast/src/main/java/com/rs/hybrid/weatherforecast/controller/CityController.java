@@ -24,8 +24,11 @@ public class CityController {
 
     @GetMapping
     public ResponseEntity getCities() {
+        if (cityService.getSortedCities() == null)
+            return ResponseEntity.noContent().build();
+
         List<CityDTO> cityDTOS = new ArrayList<>();
-        cityService.getAll().forEach(city -> {
+        cityService.getSortedCities().forEach(city -> {
             cityDTOS.add(conversionService.convert(city, CityDTO.class));
         });
         return ResponseEntity.ok(cityDTOS);
