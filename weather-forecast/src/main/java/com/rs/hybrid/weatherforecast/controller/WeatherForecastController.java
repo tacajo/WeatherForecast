@@ -1,7 +1,6 @@
 package com.rs.hybrid.weatherforecast.controller;
 
 import com.rs.hybrid.weatherforecast.dto.CityDTO;
-import com.rs.hybrid.weatherforecast.service.CityService;
 import com.rs.hybrid.weatherforecast.service.WeatherForecastService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +35,7 @@ public class WeatherForecastController {
 
     @GetMapping(value = "/sort-by-avg-temp")
     public ResponseEntity sortByAverageTemp() {
-        if(weatherForecastService.sortByAverageTemperature() == null)
+        if (weatherForecastService.sortByAverageTemperature() == null)
             return ResponseEntity.noContent().build();
 
         List<CityDTO> cityDTOS = new ArrayList<>();
@@ -53,7 +52,7 @@ public class WeatherForecastController {
             logger.error("DATE RANGE: {} - {}", new Date(), new Date(new Date().getTime() + 5 * 86400000));
             return ResponseEntity.badRequest().body(String.format("DATE RANGE: %s - %s", new Date(), new Date(new Date().getTime() + 5 * 86400000)));
         }
-        if(weatherForecastService.averageTemp(startDate, endDate) == null)
+        if (weatherForecastService.averageTemp(startDate, endDate) == null)
             return ResponseEntity.noContent().build();
 
         List<CityDTO> cityDTOS = new ArrayList<>();

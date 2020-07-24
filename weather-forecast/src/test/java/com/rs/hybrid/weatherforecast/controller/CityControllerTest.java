@@ -60,7 +60,7 @@ public class CityControllerTest {
                 .timezone(7200)
                 .build();
 
-        when(cityServiceMock.getAll()).thenReturn(Arrays.asList(city1, city2));
+        when(cityServiceMock.getSortedCities()).thenReturn(Arrays.asList(city1, city2));
 
         mockMvc.perform(get("/city"))
                 .andExpect(status().isOk())
