@@ -27,9 +27,6 @@ public class WeatherForecastController {
     private WeatherForecastService weatherForecastService;
 
     @Autowired
-    private CityService cityService;
-
-    @Autowired
     private ConversionService conversionService;
 
     @PostConstruct
@@ -38,7 +35,7 @@ public class WeatherForecastController {
     }
 
     @GetMapping(value = "/sort-by-avg-temp")
-    public ResponseEntity averageTemp() {
+    public ResponseEntity sortByAverageTemp() {
         if(weatherForecastService.sortByAverageTemperature() == null)
             return ResponseEntity.noContent().build();
 
