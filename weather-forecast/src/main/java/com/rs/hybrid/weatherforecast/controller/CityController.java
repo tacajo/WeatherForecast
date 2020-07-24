@@ -24,7 +24,7 @@ public class CityController {
 
     @GetMapping
     public ResponseEntity getCities() {
-        if(cityService.getSortedCities() == null)
+        if (cityService.getSortedCities() == null)
             return ResponseEntity.noContent().build();
 
         List<CityDTO> cityDTOS = new ArrayList<>();

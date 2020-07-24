@@ -115,7 +115,7 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
         logger.info("Sort by average temperature...");
         List<City> cities = cityService.getAll();
 
-        if(cities.isEmpty()) {
+        if (cities.isEmpty()) {
             logger.warn("List of cities is empty.");
             return null;
         }
@@ -142,7 +142,7 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
         logger.info("Average temperature from {} to {}", startDate, endDate);
         List<City> cities = cityService.getAll();
 
-        if(cities.isEmpty()) {
+        if (cities.isEmpty()) {
             logger.warn("List of cities is empty.");
             return null;
         }

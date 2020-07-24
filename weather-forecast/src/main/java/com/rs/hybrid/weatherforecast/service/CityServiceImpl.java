@@ -29,6 +29,8 @@ public class CityServiceImpl implements CityService {
         return cityRepository.findAll();
     }
 
-    public List<City> getSortedCities() {return weatherForecastService.sortByAverageTemperature();}
+    public List<City> getSortedCities() {
+        return weatherForecastService.sortByAverageTemperature();
+    }
 
 }
