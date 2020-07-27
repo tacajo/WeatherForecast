@@ -135,7 +135,8 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
     public boolean validDates(Date startDate, Date endDate) {
         Date today = new Date();
         Date todayPlus5days = new Date(today.getTime() + 5 * 86400000);
-        return (startDate.after(today) && endDate.before(todayPlus5days));
+        return (startDate.after(today) && endDate.before(todayPlus5days)
+                && startDate.before(todayPlus5days) && endDate.after(startDate));
     }
 
     public List<City> averageTemp(Date startDate, Date endDate) {
